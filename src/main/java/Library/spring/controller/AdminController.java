@@ -29,10 +29,10 @@ public class AdminController {
 
         if (admin != null) {
             model.addAttribute("successMessage", "Login successful!");
-            return "main"; // Redirect to the admin dashboard
+            return "main";
         } else {
             model.addAttribute("errorMessage", "Invalid username or password. Please try again.");
-            return "index"; // Return to the login page (index.html)
+            return "index"; 
         }
     }
 
