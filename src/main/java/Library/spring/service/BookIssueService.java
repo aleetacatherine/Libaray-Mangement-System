@@ -51,7 +51,6 @@ public class BookIssueService {
             bookIssue.setMember(member);
             bookIssue.setBook(book);
 
-            // Calculate and set the return date (3 days after the issue date)
           
         }
         return bookIssues;
@@ -72,17 +71,15 @@ public class BookIssueService {
                 bookRepo.save(book);
             }
 
-            // Remove the association with Member and Book entities
+            
             bookIssue.setMember(null);
             bookIssue.setBook(null);
 
-            // Save the updated BookIssue entity without the associations
             bookIssueRepository.save(bookIssue);
 
             // Delete the BookIssue entity
             bookIssueRepository.deleteById(id);
         } else {
-            // Handle the case where the BookIssue entity with the given ID is not found
             throw new EntityNotFoundException("BookIssue with ID " + id + " not found");
         }
     }
