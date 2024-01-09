@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+       <p class="logo"><i id="icon-home" class="fa fa-institution"></i>&nbsp;&nbsp;<span>Library</span></p>
+        <div class="dropdown" id="memberDropdown">
+            <a href="#" class="icon-a" onclick="toggleDropdown('memberDropdown')">
+                <i class="fa fa-user icons"></i>&nbsp;&nbsp;Member
+                <span class="arrow-right">&#9654;</span>
+            </a>
+            <div class="dropdown-content" id="memberSubmenu">
+                <a href="addmember"><i class="fa fa-plus"></i> Add New</a>
+                <a href="listmember"><i class="fa fa-list"></i> List</a>
+            </div>
+        </div>
+        <div class="dropdown" id="bookDropdown">
+            <a href="#" class="icon-a" onclick="toggleDropdown('bookDropdown')">
+                <i class="fa fa-book icons"></i>&nbsp;&nbsp;Book
+                <span class="arrow-right">&#9654;</span>
+            </a>
+            <div class="dropdown-content" id="bookSubmenu">
+                <a href="addbook"><i class="fa fa-plus"></i>Add New</a>
+                <a href="listbook"><i class="fa fa-list"></i>List</a>
+            </div>
+        </div>
+        <div class="dropdown" id="bookIssueDropdown">
+            <a href="#" class="icon-a" onclick="toggleDropdown('bookIssueDropdown')">
+                <i class="fa fa-book icons"></i>&nbsp;&nbsp;Book Issue
+                <span class="arrow-right">&#9654;</span>
+            </a>
+            <div class="dropdown-content" id="bookIssueSubmenu">
+                <a href="listmember1"><i class="fa fa-plus"></i>Add New</a>
+                <a href="listbookissue"><i class="fa fa-list"></i>List</a>
+            </div>
+        </div>
+     <div class="dropdown">
+     <a href="#" onclick="logout()">
+        <i class="fa fa-sign-out"></i>&nbsp;&nbsp;Logout
+    </a>
+</div>
+    </div>
+  
+
+    <div id="main">
+        <div class="head">
+            <div class="col-div-6">
+                <span style="font-size: 30px;cursor: pointer;color: white;" class="nav">&#9776;Dashboard</span>
+                <span style="font-size: 30px;cursor: pointer;color: white;" class="nav2">&#9776;&nbsp;Dashboard</span>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+                 <div id="members-section" class="col-div-3">
+                    <div class="box">
+                   <p><span id="members-count" style="color: white; font-weight: bold; font-size:40px;">0</span><br /><span>members</span></p>
+                   <i class="fa fa-users box-icon"></i>
+                    </div>
+                  </div>
+
+              <div id="books-section" class="col-div-3">
+               <div class="box">
+                <p><span id="books-count" style="color: white; font-weight: bold; font-size:40px;" >0</span><br /><span>books</span></p>
+              <i class="fa fa-book box-icon"></i>
+          </div>
+            </div>
+
+              <div id="issues-section" class="col-div-3">
+                 <div class="box">
+                    <p><span id="issues-count" style="color: white; font-weight: bold; font-size:40px;">0</span><br /><span>book issues</span></p>
+                   <i class="fa fa-book box-icon"></i>
+                </div>
+                </div>
+        <div class="clearfix"></div>
+        <br/><br/>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+    <script>
+    function toggleDropdown(dropdownId) {
+        var dropdown = $("#" + dropdownId);
+        dropdown.toggleClass('clicked');
+
+        var arrow = dropdown.find('.arrow-right');
+        arrow.css('transform', dropdown.hasClass('clicked') ? 'rotate(90deg)' : 'rotate(0deg)');
+    }
+    function updateCounts() {
+        fetch('/api/dashboard/membersCount')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('members-count').textContent = data;
+            });
+
+        fetch('/api/dashboard/booksCount')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('books-count').textContent = data;
+            });
+
+        fetch('/api/dashboard/issuesCount')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('issues-count').textContent = data;
+            });
+    }
+
+    // Fetch and update counts on page load
+    updateCounts()
+    
+    $(".nav").click(function(){
+        $("#mySidenav").css('width','70px');
+        $("#main").css('margin-left','70px');
+        $(".logo").css('visibility','hidden');
+        $(".logo span").css('visibility','hidden');
+        $("#icon-home").css('visibility','visible');
+        $(".logo span").css('margin-left','-10px');
+        $(".icon-a").css('visibility','hidden');
+        $(".icons").css('visibility','visible');
+        $(".icons").css('margin-left','-8px');
+        $(".nav").css('display','none');
+        $(".nav2").css('display','block');
+    });
+
+    $(".nav2").click(function(){
+        $("#mySidenav").css('width','300px');
+        $("#main").css('margin-left','300px');
+        $(".logo").css('visibility','visible');
+        $(".logo span").css('visibility','visible');
+        $(".icon-a").css('visibility','visible');
+        $(".icons").css('visibility','visible');
+        $("#icon-home").css('visibility','visible');
+        $(".nav").css('display','block');
+        $(".nav2").css('display','none');
+    });
+    function logout() {
+        window.location.href = '/index';
+    }
+</script>
+</body>
+</html>

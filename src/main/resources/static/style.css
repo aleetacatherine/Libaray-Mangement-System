@@ -1,0 +1,125 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #1b203d;/*if wanted changed color of the ui*/
+    overflow: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.clearfix{
+    clear: both;
+}
+.logo{
+    margin: 0px;
+    margin-left: 28px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+.log span{
+    color: #f7403b;
+}
+.sidenav{
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top:0;
+    left: 0;
+    background-color: #272c4a;
+    overflow: hidden;
+    transition: 0.5s;
+    padding-top: 30px;
+}
+.sidenav a{
+    padding: 15px 8px 15px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+.sidenav a:hover{
+    color:#f1f1f1;
+    background-color: #1b203d;
+}
+.nav{
+    display: none;
+}
+/* dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 2;
+    padding-top: 15px;
+}
+.dropdown.clicked .dropdown-content {
+    display: block;
+}
+
+.dropdown.clicked .arrow-right {
+    transform: rotate(180deg); /* Rotate to face down when clicked */
+}
+.arrow-right {
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center; /* Added this line to set the transform origin to the center */
+}
+#dropdown.clicked .icon-a {
+    display: inline-block;
+}
+
+/* dropdown */
+#main{
+    transition: margin-left.5s;
+    padding: 16px;
+    margin-left: 300px;
+}
+.head{
+    padding: 20px;
+}
+.col-div-6{
+    width:50%;
+    float:left;
+}
+.nav{
+    display: none;
+}
+.col-div-3{
+    width:25%;
+    float: left;
+}
+.box{
+    width: 85%;
+    height: 100px;
+    background-color: #272c4a;
+    margin-left: 10px ;
+    padding: 10px;
+ 
+}
+.box p{
+    font-size: 35px;
+    color:white;
+    font-weight: bold;
+    line-height: 30px;
+    padding-left: 10px;
+    margin-top: 20px;
+    display: inline-block;
+}
+.box p span{
+    font-size: 20px;
+    font-weight: 400;
+    color:#818181;
+}
+.box-icon{
+    font-size: 40px!important;
+    float: right;
+    margin-top: 35px!important;
+    color:#818181;
+    padding-right: 10px;
+}
+

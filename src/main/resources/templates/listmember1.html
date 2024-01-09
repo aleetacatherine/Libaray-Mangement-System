@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+     <link th:href="@{/stylelist.css}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+       <p class="logo">
+       <span>Library</span>&nbsp;&nbsp;<i class="fa fa-home icons" id="homeIcon" style="cursor: pointer;"></i>
+        </p>
+
+        <div class="dropdown" id="memberDropdown">
+            <a href="#" class="icon-a" onclick="toggleDropdown('memberDropdown')">
+                <i class="fa fa-user icons"></i>&nbsp;&nbsp;Member
+                <span class="arrow-right">&#9654;</span>
+            </a>
+            <div class="dropdown-content" id="memberSubmenu">
+                <a href="addmember"><i class="fa fa-plus"></i> Add New</a>
+                <a href="listmember"><i class="fa fa-list"></i> List</a>
+            </div>
+        </div>
+        <div class="dropdown" id="bookDropdown">
+            <a href="#" class="icon-a" onclick="toggleDropdown('bookDropdown')">
+                <i class="fa fa-book icons"></i>&nbsp;&nbsp;Book
+                <span class="arrow-right">&#9654;</span>
+            </a>
+            <div class="dropdown-content" id="bookSubmenu">
+                <a href="addbook"><i class="fa fa-plus"></i>Add New</a>
+                <a href="listbook"><i class="fa fa-list"></i>List</a>
+            </div>
+        </div>
+        <div class="dropdown" id="bookIssueDropdown">
+            <a href="#" class="icon-a" onclick="toggleDropdown('bookIssueDropdown')">
+                <i class="fa fa-book icons"></i>&nbsp;&nbsp;Book Issue
+                <span class="arrow-right">&#9654;</span>
+            </a>
+            <div class="dropdown-content" id="bookIssueSubmenu">
+                <a href="listmember1"><i class="fa fa-plus"></i>Add New</a>
+                <a href="listbookissue"><i class="fa fa-list"></i>List</a>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div class="content">
+            <h1 id="h">List of Members</h1>
+            <div class="table-container">
+                <div class="white-box">
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>SI No.</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Gender</th>
+                                <th>Date of Birth</th>
+                                <th>Email Id</th>
+                                <th colspan="2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="member, rowStat : ${mem}" th:class="${rowStat.index % 2 == 0} ? 'even' : 'odd'">
+                                <td th:text="${rowStat.index + 1}"></td>
+                                <td th:text="${member.firstName}"></td>
+                                <td th:text="${member.lastName}"></td>
+                                <td th:text="${member.gender}"></td>
+                                <td th:text="${member.dateOfBirth}"></td>
+                                <td th:text="${member.email}"></td>
+                                 <td><a th:href="@{'/addbookdetails/'+${member.memberid}}">Addbook</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script>
+        function toggleDropdown(dropdownId) {
+            var dropdown = $("#" + dropdownId);
+            dropdown.toggleClass('clicked');
+
+            var arrow = dropdown.find('.arrow-right');
+            arrow.css('transform', dropdown.hasClass('clicked') ? 'rotate(180deg)' : 'rotate(0deg)');
+        }
+    </script>
+   <script>
+    document.getElementById('homeIcon').addEventListener('click', function() {
+        window.location.href = '/main'; // Change '/main' to your actual main page URL
+    });
+</script>
+</body>
+</html>
