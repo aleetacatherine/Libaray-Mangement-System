@@ -9,8 +9,8 @@ public class MainController {
 
     @GetMapping("/main")
     public String showMainPage(Model model) {
-        // Add any common logic for the main page
-        return "main"; // Adjust the view name accordingly
+      
+        return "main"; 
     }
     @GetMapping("/index")
     public String home() {
