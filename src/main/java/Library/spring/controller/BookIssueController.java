@@ -85,11 +85,11 @@ public class BookIssueController {
 	            // Save the book issue details to the database
 	            bookIssueService.saveBookIssue(bookIssue);
 
-	            // Redirect to the appropriate page
-	            return "redirect:/main"; // Replace with your actual success page
+	           
+	            return "redirect:/main"; 
 	        } else {
-	            // Handle the case when no copies are available
-	            return "redirect:/noCopiesAvailablePage"; // Replace with your actual page for no copies available
+	          
+	            return "redirect:/noCopiesAvailablePage";
 	        }
 	    }
 	   
