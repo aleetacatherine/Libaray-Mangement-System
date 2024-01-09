@@ -40,7 +40,7 @@ public class BookIssueController {
 	   
 	    @RequestMapping("/bookIssueMain")
 	    public String showMainPage(Model model) {
-	        // You can add additional logic to populate the model if needed
+	        
 	        return "main";
 	    }
 	    @GetMapping("/listmember1")
@@ -65,7 +65,7 @@ public class BookIssueController {
 	        Member member = memberService.getAllById(memberid);
 	        Book book = bookService.getAllById(bookid);
 
-	        // Check if there are available copies
+	      
 	        if (book.getCopiesAvailable() > 0) {
 	            // Update the count of available copies
 	            book.setCopiesAvailable(book.getCopiesAvailable() - 1);
