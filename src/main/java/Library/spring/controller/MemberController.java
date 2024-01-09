@@ -58,7 +58,7 @@ public class MemberController {
 	}
 	@RequestMapping("/memberMain")
     public String showMainPage(Model model) {
-        // You can add additional logic to populate the model if needed
+       
         return "main";
     }
 	@GetMapping("/listmember")
