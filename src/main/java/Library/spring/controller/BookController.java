@@ -68,7 +68,7 @@ public class BookController {
 	public String getEditBook(@PathVariable("bookid") int bookid, Model model) {
 	    Book book = bookService.getAllById(bookid);
 	    model.addAttribute("book",book);
-	    return "editbook"; // Assuming the edit page is named "editmember.html"
+	    return "editbook";
 	}
 	@PostMapping("/updateBook")
 	public String updateBook(@ModelAttribute("book") Book book, RedirectAttributes redirectAttributes) {
