@@ -81,11 +81,10 @@
                 <input type="submit" value="Update Member">
             </form>
 
-            <!-- JavaScript to hide success message after 5 seconds -->
             <script th:if="${successMessage}">
                 setTimeout(function() {
                     document.querySelector('.alert-success').style.display = 'none';
-                }, 5000); // Hide after 5 seconds (adjust the time as needed)
+                }, 5000); 
             </script>
         </div>
     </div>
@@ -102,7 +101,7 @@
     </script>
     <script>
     document.getElementById('homeIcon').addEventListener('click', function() {
-        window.location.href = '/main'; // Change '/main' to your actual main page URL
+        window.location.href = '/main'; 
     });
 </script>
 </body>
