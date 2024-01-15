@@ -114,7 +114,7 @@
     </script>
     <script>
         document.getElementById('homeIcon').addEventListener('click', function() {
-            window.location.href = '/main'; // Change '/main' to your actual main page URL
+            window.location.href = '/main';
         });
     </script>
   <script>
@@ -124,10 +124,10 @@
       input = document.getElementById("searchInput");
       filter = input.value.toUpperCase();
       table = document.querySelector(".table");
-      tr = table.getElementsByTagName("tr"); // Use getElementsByTagName to get all rows
+      tr = table.getElementsByTagName("tr");
 
       for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[1]; // Assuming the first name is in the second column (index 1)
+          td = tr[i].getElementsByTagName("td")[1]; 
           if (td) {
               txtValue = td.textContent || td.innerText;
               txtValue = txtValue.toUpperCase();
