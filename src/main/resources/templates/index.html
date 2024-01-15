@@ -43,7 +43,7 @@
             color: white;
             font-size: 16px;
             border-bottom: 2px solid #818181;
-            box-sizing: border-box; /* Adjusted to include padding in width calculation */
+            box-sizing: border-box; 
         }
 
         .input-field::placeholder {
@@ -67,12 +67,12 @@
             color: white;
         }
         alert-success {
-            background-color: white; /* Success message background color */
+            background-color: white; 
             color: black;
         }
 
         .alert-danger {
-            background-color: white; /* Error message background color */
+            background-color: white; 
             color: black;
         }
     </style>
@@ -98,7 +98,7 @@
         <script th:if="${successMessage}">
             setTimeout(function() {
                 document.querySelector('.success-message').style.display = 'none';
-            }, 5000); // Hide after 5 seconds (adjust the time as needed)
+            }, 5000); 
         </script>
     </div>
 </body>
