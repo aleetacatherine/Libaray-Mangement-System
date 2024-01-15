@@ -117,7 +117,7 @@
     </script>
    <script>
     document.getElementById('homeIcon').addEventListener('click', function() {
-        window.location.href = '/main'; // Change '/main' to your actual main page URL
+        window.location.href = '/main'; 
     });
     
     
@@ -126,8 +126,8 @@
         var rows = table.querySelectorAll("tbody tr");
 
         rows.forEach(function(row) {
-            var issueDateCell = row.querySelector("td:nth-child(7)"); // Assuming issue date is in the seventh column (index 6)
-            var returnDateCell = row.querySelector("td:nth-child(8)"); // Assuming return date is in the eighth column (index 7)
+            var issueDateCell = row.querySelector("td:nth-child(7)"); 
+            var returnDateCell = row.querySelector("td:nth-child(8)"); 
 
             if (issueDateCell && returnDateCell) {
                 var issueDate = new Date(issueDateCell.textContent);
@@ -137,7 +137,7 @@
                 var expectedReturnDate = new Date(issueDate);
                 expectedReturnDate.setDate(expectedReturnDate.getDate() + 5);
 
-                // Compare return date with expected return date
+             
                 if (returnDate > expectedReturnDate) {
                     returnDateCell.classList.add("overdue");
                 } else {
@@ -147,7 +147,7 @@
         });
     }
 
-    // Call the setOverdueColor function on page load
+ 
     window.addEventListener("load", setOverdueColor);
 
     // Call the setOverdueColor function on page load
